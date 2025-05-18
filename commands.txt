@@ -1,0 +1,25 @@
+npm install -g @angular/cli@16
+npm install --save-dev @angular-architects/module-federation@16
+npm install --save-dev json5
+npm install --save-dev @schematics/angular
+npm install @angular-devkit/schematics
+npm install @angular-devkit/core @angular-devkit/schematics-cli
+npm install --save-dev webpack@5.88.2 webpack-cli@5.1.4
+npm install concurrently --save-dev
+
+Step 1:Create the Shell Application & Enable Module Federation for the shell:
+
+ng new shell --routing --style=scss
+cd shell
+
+ng add @angular-architects/module-federation@16 --project shell --type host
+
+Step 2: Create the Remote Micro Frontend (e.g., flights-app)
+Navigate to root directory and execute below:
+cd ../
+ng generate application flights-app --routing --style=scss
+ng add @angular-architects/module-federation@16 --project flights-app --type remote --port 4201
+
+
+
+
